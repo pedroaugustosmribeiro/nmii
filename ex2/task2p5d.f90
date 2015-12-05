@@ -6,7 +6,7 @@ program task2p5d
   implicit none
   integer :: i,years,readline
   real(rk) :: w(3),y,B(3,3),H(3),d(3),xb(3),xa(3),A(3,3),K(3),By,x(3)
-  years=1
+  years=10
   xa=real([0,1,0],rk)
   H=real([1,1,0],rk)
   K=real([0,0,0],rk)
