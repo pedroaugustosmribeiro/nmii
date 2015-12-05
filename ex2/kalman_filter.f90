@@ -9,11 +9,15 @@ contains
     real(rk) :: K(3),By
 
     By=(dot_product(matmul(H,B),H))+(sig0**2) !!is wright
-    K=matmul(B,H)/By
-    A= B-(dot_product(K,H)*B)
+
+    K=matmul(B,(H/By)) !ahaaaaaaaaaaan, Houston we have a problem!!
+
+    !K=(B(1,1)+B(1,2)+B(2,1)+B(2,2))
+    A= B*(1-dot_product(K,H))
+    !print *,(y-dot_product(H,xb)),xb
     xa=xb+K*(y-dot_product(H,xb))
 
-    print *,K(3),By
+    !print *,K!,By
     
   end subroutine analysis
 
