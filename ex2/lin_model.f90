@@ -27,7 +27,7 @@ contains
     print *,M(3,1),M(3,2),M(3,3)
     print '(3g)',transpose(M)
     W=reshape([0.05_rk**2,0.0_rk,0.0_rk,0.0_rk,0.01_rk,0.0_rk,0.0_rk,0.0_rk,0.01_rk],shape(W))
-    err_model=matmul(matmul(M,A),transpose(M))!+W
+    err_model=matmul(matmul(M,A),transpose(M))+W
   end function err_model
 
 end module lin_model
