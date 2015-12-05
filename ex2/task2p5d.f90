@@ -5,7 +5,7 @@ program task2p5d
   use stat
   implicit none
   integer :: i,years,readline
-  real(rk) :: w(3),y,B(3,3),H(3),d(3)
+  real(rk) :: w(3),y,B(3,3),H(3),d(3),xb(3)
   years=10
   xa=real([0,1,0],rk)
   H=real([1,1,0],rk)
@@ -15,13 +15,13 @@ program task2p5d
      print *,i
      print *
      y=obs(xa)
-     !B=err_model(A)
+     B=err_model(A)
      print *,'y= ',y
      print *
      w=[N_random(0.0_rk,0.05_rk),N_random(0.0_rk,0.01_rk),N_random(0.0_rk,0.01_rk)]
      print *,'w= ',w
      print *
-     call model()
+     xb=model(xa)
      !xb=model(xa)+w !with noise c
      print *,'xb = ',xb
      print *
