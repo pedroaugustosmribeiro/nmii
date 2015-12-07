@@ -22,6 +22,6 @@ program task2p5d
      !update step
      call analysis(xb,B,H,y,sig0,xa,A)
      d=x-xb
-     print *,i,d
+     write(11,'(i,3(x,g))'),i,d
   end do
 end program task2p5d
