@@ -21,7 +21,7 @@ program task2p5d
      xb=model(xa)+w !with noise c
      !update step
      call analysis(xb,B,H,y,sig0,xa,A)
-     d=x-xb
-     write(11,'(i,3(x,g))'),i,d
+     d=xa-xb  !x-xb or xa-xb?
+     write(11,'(i0,3(x,g0))'),i,d
   end do
 end program task2p5d

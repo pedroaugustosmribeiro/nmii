@@ -20,15 +20,14 @@ contains
     model=dx
   end function model
 
-  pure function err_model(x)
+  pure function err_model(x,xp)
     implicit none
-    real(rk),intent(in) :: x(3)
-    real(rk) :: M(3,3),delta(3),err_model(3)!,sigma,rho,beta
+    real(rk),intent(in) :: x(3),xp(3)
+    real(rk) :: M(3,3),err_model(3)!,sigma,rho,beta
     !real(rk) :: err_model(3)
 
-    delta=real([1,1,1],rk)
     M=reshape([-sigma,rho-x(3),x(2),sigma,-1.0_rk,x(1),.0_rk,-x(1),-beta],shape(M))
-    err_model=matmul(M,x)
+    err_model=matmul(M,xp)
   end function err_model
   
 end module l63
