@@ -3,7 +3,7 @@ module synth_obs
   implicit none
 
 contains
- real(rk) function obs(x)
+  real(rk) function obs(x)
     implicit none
     real(rk),intent(in) :: x(3)
     real(rk) :: H(3),v

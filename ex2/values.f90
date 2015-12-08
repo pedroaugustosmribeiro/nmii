@@ -8,7 +8,7 @@ contains
   !general use functions and subroutines
   real(rk) function N_random(mi,sig)
     implicit none
-    real(rk) :: mi,sig !parameters of normal distribution
+    real(rk),intent(in) :: mi,sig !parameters of normal distribution
     real(rk) :: r
     call random_number(r)
     N_random=mi+sig*(sqrt(-2*log(r))*cos(2*pi*r))
