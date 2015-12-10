@@ -12,7 +12,6 @@ contains
     By=(dot_product(H,matmul(B,H)))+(sig0**2)
     !ahaaaaaaaaaaan, Houston we have a problem!!
     K=matmul(B,H)/By
-    K=K/By
     A=B-matmul(cross(K,H),B)
     !print *,(y-dot_product(H,xb)),xb
     xa=xb+K*(y-dot_product(H,xb))
