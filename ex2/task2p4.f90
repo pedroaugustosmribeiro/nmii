@@ -22,10 +22,9 @@ program task2p4
      xb=model(xa)+w !with noise
      B=err_model(A)
      call analysis(xb,B,H,y,sig0,xa,A)
+     
      d(i)=y-dot_product(H,xb) !inovations
      r(i)=y-dot_product(H,xa) !residuals
-     !     write(1,'(i,x,2(f,x))'),i,y,dot_product(H,xa)
-     !print *,i,y,dot_product(H,xb),dot_product(H,xa),d,r
      write(4,*),i,d(i),r(i)
   end do
   call statistics(d,dl)
