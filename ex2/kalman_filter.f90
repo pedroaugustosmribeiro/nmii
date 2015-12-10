@@ -2,7 +2,7 @@ module kalman_filter
   use values
   implicit none
 contains
-  
+
   pure subroutine analysis(xb,B,H,y,sig0,xa,A)
     implicit none
     real(rk),intent(in) :: xb(3),B(3,3),H(3),y,sig0

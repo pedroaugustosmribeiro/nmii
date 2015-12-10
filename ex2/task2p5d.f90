@@ -12,7 +12,7 @@ program task2p5d
   H=real([1,1,0],rk)
   K=real([0,0,0],rk)
   A=reshape(real([10,0,0,0,10,0,0,0,10],rk),shape(A))
-  print *,rk
+  print *,8
   do i=1,12*years
 
      y=obs(xa)
@@ -24,6 +24,6 @@ program task2p5d
      !update step
      call analysis(xb,B,H,y,sig0,xa,A)
      d=xa-xb  !x-xb or xa-xb?
-     write(6,'(i0,3(x,g0))'),i,d
+     write(8,'(i0,3(x,g0))'),i,d
   end do
 end program task2p5d
