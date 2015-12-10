@@ -5,7 +5,9 @@ program task2p4
   use stat
   implicit none
   integer :: i,years
-  real(rk) :: xb(3),w(3),y,B(3,3),H(3)
+  real(rk) :: y
+  real(rk),dimension(3) :: xb,H,w,xa
+  real(rk),dimension(3,3) :: B,A
   real(rk),allocatable :: d(:),r(:)
   character(len=20) :: dl='inovations',rl='residuals'
   years=10
@@ -19,7 +21,7 @@ program task2p4
      w=[N_random(0.0_rk,0.05_rk),N_random(0.0_rk,0.01_rk),N_random(0.0_rk,0.01_rk)]
      xb=model(xa)+w !with noise
      B=err_model(A)
-     call analysis(xb,B,H,y)
+     call analysis(xb,B,H,y,sig0,xa,A)
      d(i)=y-dot_product(H,xb) !inovations
      r(i)=y-dot_product(H,xa) !residuals
      !     write(1,'(i,x,2(f,x))'),i,y,dot_product(H,xa)
