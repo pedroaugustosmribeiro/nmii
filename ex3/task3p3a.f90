@@ -6,13 +6,13 @@ program task3p3a
   integer :: i,k
 
   x=real([11,22,10],rk)
+  !x=real([11,22,10]+[1,1,1],rk)
   xp=real([1,1,1],rk)
-  k=1000
+  k=100
   dt=0.01_rk
   
   do i=1,k
-     write(1,'(7(g,x))'),i*dt,xp!,xp
-     print *,x/dxp
+     write(2,*),i*dt,x/xp
      dx=model(x) !calculate x'i
      dxp=err_model(x,xp)
      x=x+dx*dt !calculate xi+1

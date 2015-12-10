@@ -8,17 +8,27 @@ contains
     real(rk),intent(out) :: A(3,3),xa(3)
     real(rk) :: K(3),By
 
-    By=(dot_product(matmul(H,B),H))+(sig0**2) !!is wright
-
-    K=matmul(B,(H/By)) !ahaaaaaaaaaaan, Houston we have a problem!!
-
-    !K=(B(1,1)+B(1,2)+B(2,1)+B(2,2))
-    A= B*(1-dot_product(K,H))
+    !!is wright
+    By=(dot_product(H,matmul(B,H)))+(sig0**2)
+    !ahaaaaaaaaaaan, Houston we have a problem!!
+    K=matmul(B,H)/By
+    K=K/By
+    A=B-matmul(cross(K,H),B)
     !print *,(y-dot_product(H,xb)),xb
     xa=xb+K*(y-dot_product(H,xb))
 
     !print *,K!,By
 
   end subroutine analysis
+
+  pure function cross(u,v)
+    implicit none
+    real(rk),intent(in) :: u(:),v(:)
+    real(rk),allocatable :: cross(:,:)
+    integer :: i,j
+    allocate(cross(size(u),size(v)))
+    cross=reshape([((v(i)*u,i=1,size(u)),j=1,size(v))],shape(cross))
+  end function cross
+  
 
 end module kalman_filter
