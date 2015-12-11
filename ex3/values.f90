@@ -2,7 +2,7 @@ module values
   implicit none
   !important constants
   integer,parameter :: rk=selected_real_kind(15,307) !select type of real
-  real(rk),parameter :: pi=4.0_rk*atan(1.0_rk),sig0=sqrt(0.4_rk)
+  real(rk),parameter :: pi=4.0_rk*atan(1.0_rk),sig0=sqrt(1.4_rk)
 
 contains
   !general use functions and subroutines
